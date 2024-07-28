@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from "next/link"
 import MaxWidthWrapper from "./MaxWidthWrapper"
-import { ArrowRight, Sun, Bell, Github } from 'lucide-react'
+import { ArrowRight, Plus } from 'lucide-react'
 import { buttonVariants } from './ui/button'
 import { cn } from '@/lib/utils'
 import { getAuthSession } from '@/lib/auth'
@@ -15,39 +15,34 @@ async function Navbar() {
         <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-sm transition-all">
             <MaxWidthWrapper>
                 <div className='flex h-14 items-center justify-between'>
-                    <Link href='/' className='flex z-40 font-semibold text-lg'>
-                        <span>MyProduct</span>
+                    <Link href='/' className='z-40'>
+                        <Image
+                            src='/logo.png'
+                            width={50}
+                            height={50}
+                            alt='spot-a-pot logo'
+                            priority
+                            quality={95}
+                        />
                     </Link>
 
-                    {/* TODO: add mobile navbar */}
-
-                    <div className='hidden items-center space-x-1.5 sm:flex'>
+                    <div className='flex items-center space-x-1.5'>
                         <>
-                            <div
+                            <Link
+                                href='/submit-post'
                                 className={cn(buttonVariants({
-                                    variant: "ghost",
+                                    variant: "outline",
                                     size: "sm",
                                 }), "cursor-pointer")}>
-                                <Bell className='h-4 w-4' />
-                            </div>
 
-                            <div
-                                className={cn(buttonVariants({
-                                    variant: "ghost",
-                                    size: "sm",
-                                }), "cursor-pointer")}>
-                                <Sun className='h-4 w-4' />
-                            </div>
+                                <p className='font-semibold text-sm flex items-center gap-1'>
+                                    <Plus className='h-4 w-4 text-center' />
+                                    <span className=''>Spot a Pot</span>
+                                </p>
 
-                            <div
-                                className={cn(buttonVariants({
-                                    variant: "ghost",
-                                    size: "sm",
-                                }), "cursor-pointer")}>
-                                <Github className='h-4 w-4' />
-                            </div>
+                            </Link>
 
-                            {session?.user ? (
+                            {true ? (
                                 <UserAccountNav session={session} />
                             ) : (
                                 <Link href='/sign-in' className={cn(buttonVariants({ size: "sm" }), "flex items-center justify-center group px-4")}>

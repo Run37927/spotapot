@@ -1,4 +1,4 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import MapList from "@/components/MapList";
 import { getAuthSession } from "@/lib/auth";
 import prisma from "@/lib/db";
 
@@ -6,8 +6,6 @@ export default async function Home() {
   const session = await getAuthSession();
 
   return (
-    <MaxWidthWrapper className="mb-12 mt-8">
-      <h1>insert body here</h1>
-    </MaxWidthWrapper>
+    <MapList />
   );
 }

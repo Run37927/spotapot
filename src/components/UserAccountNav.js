@@ -1,6 +1,5 @@
 'use client'
 import { LayoutDashboard, LineChart, LogOutIcon, User } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 import { signOut } from 'next-auth/react';
@@ -82,18 +81,10 @@ function UserAccountNav({ session }) {
 
     return (
         <div
-            className='relative'
+            className='hidden md:block relative'
             onClick={toggleDropDownMenu}
         >
-            <div className="w-7 h-7 cursor-pointer rounded-full bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300 mr-2"></div>
-            {/* <Image
-                width={28}
-                height={28}
-                className='w-full rounded-full hover:opacity-85 cursor-pointer'
-                src={session?.user?.image}
-                alt='profile pic'
-                referrerPolicy='no-referrer'
-            /> */}
+            <div className="w-7 h-7 cursor-pointer rounded-full bg-gradient-to-r from-teal-200 via-teal-300 to-teal-500 mr-2"></div>
             {showDropdown && showDropDownMenu()}
         </div>
     )
