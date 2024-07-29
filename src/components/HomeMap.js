@@ -24,7 +24,7 @@ function HomeMap({ nearbyPotties, userLat, userLong, onAddPotty }) {
                     latitude={pot.latitude}
                     anchor="bottom"
                 >
-                    <div className='animate-bounce text-2xl'>
+                    <div className='animate-bounce text-3xl'>
                         💩
                     </div>
                 </Marker>
