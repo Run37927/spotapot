@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       <body className={cn('min-h-screen font-sans antialiased', mulish.className)}>
         <Providers>
           <Toaster />
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
         </Providers>
       </body>
