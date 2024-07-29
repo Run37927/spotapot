@@ -13,7 +13,7 @@ export async function middleware(req, context) {
 
         if (!success) {
             console.log('Rate limit exceeded');
-            return new NextResponse('You are posting too fast', { status: 429 });
+            return new NextResponse(JSON.stringify('You are posting too fast'), { status: 429 });
         }
 
         const res = NextResponse.next();
