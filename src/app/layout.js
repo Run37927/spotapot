@@ -4,7 +4,6 @@ import { cn, constructMetadata } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import { Toaster } from '@/components/ui/toaster';
 import Providers from '@/components/Providers';
-import { Analytics } from "@vercel/analytics/react"
 
 const mulish = Mulish({ subsets: ['latin'] });
 
@@ -38,7 +37,6 @@ export default function RootLayout({ children }) {
           <Toaster />
           <Navbar />
           {children}
-          <Analytics />
         </Providers>
       </body>
     </html>

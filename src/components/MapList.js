@@ -11,8 +11,6 @@ function MapList() {
         longitude: -123.028390
     });
 
-    console.log(nearbyPotties);
-
     const { toast } = useToast();
 
     useEffect(() => {
@@ -53,18 +51,19 @@ function MapList() {
             });
 
             if (!response.ok) {
+                console.log('Failed to add potty:', response);
                 toast({
                     variant: "destructive",
                     title: `Something went wrong.`,
-                    description: `Failed to add potty, please try again`
+                    description: `${response.statusText}`
                 });
-            };
-
-            toast({
-                variant: "success",
-                title: `Porta Potty Added!`,
-                description: `Thank you for your contribution🙏🏼`
-            })
+            } else {
+                toast({
+                    variant: "success",
+                    title: `Porta Potty Added!`,
+                    description: `Thank you for your contribution🙏🏼`
+                })
+            }
 
             const newPotty = await response.json();
             setNearbyPotties([...nearbyPotties, newPotty]);
