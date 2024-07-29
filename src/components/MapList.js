@@ -11,6 +11,8 @@ function MapList() {
         longitude: -123.028390
     });
 
+    console.log(nearbyPotties);
+
     const { toast } = useToast();
 
     useEffect(() => {
