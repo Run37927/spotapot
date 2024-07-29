@@ -15,9 +15,8 @@ export const formatPrice = (price) => {
 };
 
 
-// TODO: update this
 export function constructMetadata({
-  title = "",
+  title = "Porta Potty Finder for Tradesmen | Spot A Potty",
   description = "",
   image = "/",
   icons = "/favicon.ico",
@@ -38,6 +37,6 @@ export function constructMetadata({
       images: [image],
       creator: "@hairunhuang",
     },
-    metadataBase: new URL('https://example.xyz')
+    metadataBase: new URL('https://spotapot.vercel.app')
   };
 }

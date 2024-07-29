@@ -12,7 +12,7 @@ function HomeMap({ nearbyPotties, userLat, userLong, onAddPotty }) {
     const initialViewState = {
         latitude: userLat,
         longitude: userLong,
-        zoom: 10.3,
+        zoom: 11.3,
     };
 
     const pins = useMemo(
