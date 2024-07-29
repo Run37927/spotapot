@@ -51,7 +51,6 @@ function MapList() {
             });
 
             if (!response.ok) {
-                console.log('Failed to add potty:', response);
                 toast({
                     variant: "destructive",
                     title: `Something went wrong.`,
