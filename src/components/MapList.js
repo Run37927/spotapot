@@ -55,7 +55,7 @@ function MapList() {
                 toast({
                     variant: "destructive",
                     title: `Something went wrong.`,
-                    description: `${response.statusText}`
+                    description: `${response.status}`
                 });
             } else {
                 toast({
