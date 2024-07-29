@@ -1,8 +1,8 @@
 import MapList from "@/components/MapList";
 
-export default async function Home() {
+export default function Home() {
   return (
-    <h1>Stop Spamming.</h1>
+    <h1 className="text-6xl font-bold text-center">Stop Spamming.</h1>
     // <MapList />
   );
 }
