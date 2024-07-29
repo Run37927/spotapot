@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import HomeMap from "./HomeMap";
 
-const nearbyPotties = [
+const initialNearbyPotties = [
     {
         id: 1,
         latitude: 49.055053,
@@ -90,50 +90,61 @@ const nearbyPotties = [
 ];
 
 function MapList() {
+    const [nearbyPotties, setNearbyPotties] = useState(initialNearbyPotties);
+
     const [location, setLocation] = useState({
         latitude: 49.090182,
         longitude: -123.028390
     });
 
     // Get user's location
-    function getLocation() {
-        console.log("Attempting to fetch user's location...");
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    console.log("Location access granted. Position:", position);
-                    setLocation({
-                        latitude: position.coords.latitude,
-                        longitude: position.coords.longitude,
-                    });
-                },
-                showError
-            );
-        } else {
-            console.log("Geolocation is not supported by this browser.");
-        }
-    }
+    // function getLocation() {
+    //     console.log("Attempting to fetch user's location...");
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.getCurrentPosition(
+    //             (position) => {
+    //                 console.log("Location access granted. Position:", position);
+    //                 setLocation({
+    //                     latitude: position.coords.latitude,
+    //                     longitude: position.coords.longitude,
+    //                 });
+    //             },
+    //             showError
+    //         );
+    //     } else {
+    //         console.log("Geolocation is not supported by this browser.");
+    //     }
+    // }
 
-    function showError(error) {
-        switch (error.code) {
-            case error.PERMISSION_DENIED:
-                console.log("User denied the request for Geolocation.");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                console.log("Location information is unavailable.");
-                break;
-            case error.TIMEOUT:
-                console.log("The request to get user location timed out.");
-                break;
-            case error.UNKNOWN_ERROR:
-                console.log("An unknown error occurred.");
-                break;
-        }
-    }
+    // function showError(error) {
+    //     switch (error.code) {
+    //         case error.PERMISSION_DENIED:
+    //             console.log("User denied the request for Geolocation.");
+    //             break;
+    //         case error.POSITION_UNAVAILABLE:
+    //             console.log("Location information is unavailable.");
+    //             break;
+    //         case error.TIMEOUT:
+    //             console.log("The request to get user location timed out.");
+    //             break;
+    //         case error.UNKNOWN_ERROR:
+    //             console.log("An unknown error occurred.");
+    //             break;
+    //     }
+    // }
 
-    useEffect(() => {
-        getLocation();
-    }, []);
+    // useEffect(() => {
+    //     getLocation();
+    // }, []);
+
+    const handleAddPotty = (newPottyLocation) => {
+        const newPotty = {
+            id: nearbyPotties.length + 1,
+            name: `Potty ${nearbyPotties.length + 1}`,
+            ...newPottyLocation
+        };
+        setNearbyPotties([...nearbyPotties, newPotty]);
+    };
 
     return (
         <>
@@ -143,6 +154,7 @@ function MapList() {
                         nearbyPotties={nearbyPotties}
                         userLat={location.latitude}
                         userLong={location.longitude}
+                        onAddPotty={handleAddPotty}
                     />
                 </div>
             ) : (
