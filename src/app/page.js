@@ -3,7 +3,8 @@ import MapList from "@/components/MapList";
 export default function Home() {
   return (
     <>
-      <MapList />
+      {/* <MapList /> */}
+      <h1 className="font-bold text-center text-5xl">Discontinued due to Spamming</h1>
 
       {/* corner popup */}
       {/* <div className="fixed top-0 left-0 bg-white/75 border border-gray-200 rounded-br-xl h-12 w-fit px-4 py-1 z-40">
