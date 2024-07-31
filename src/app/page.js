@@ -6,7 +6,7 @@ export default function Home() {
       <MapList />
 
       {/* corner popup */}
-      <div className="fixed top-0 left-0 bg-white/75 border border-gray-200 rounded-br-xl h-12 w-fit px-4 py-1 z-40">
+      {/* <div className="fixed top-0 left-0 bg-white/75 border border-gray-200 rounded-br-xl h-12 w-fit px-4 py-1 z-40">
         <a
           href="https://x.com/HairunHuang"
           target="_blank"
@@ -20,7 +20,7 @@ export default function Home() {
           className="text-center text-sm block leading-tight">
           🪲<span className="hover:underline hover:underline-offset-2 ml-1">bug report</span>
         </a>
-      </div>
+      </div> */}
     </>
   );
 }
