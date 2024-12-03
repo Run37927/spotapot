@@ -17,8 +17,8 @@ export const formatPrice = (price) => {
 
 export function constructMetadata({
   title = "Porta Potty Finder for Tradesmen | Spot A Potty",
-  description = "",
-  image = "/",
+  description = "Pin a pot on the map when you find one, help a fellow tradesman out",
+  image = "/openGraph.png",
   icons = "/favicon.ico",
 } = {}) {
   return {
@@ -28,6 +28,8 @@ export function constructMetadata({
     openGraph: {
       title,
       description,
+      siteName: "Spot A Pot",
+      url: "https://spotapot.vercel.app",
       images: [{ url: image }]
     },
     twitter: {
